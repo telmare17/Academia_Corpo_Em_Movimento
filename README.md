@@ -11,7 +11,7 @@ Este projeto simula um sistema de gerenciamento de fichas de treino de uma acade
 | Registrar fichas de treino com nome do aluno, objetivo, lista de exercícios e data de início | OK     |
 | Consultar fichas cadastradas, buscando por nome do aluno;                                    | OK     |
 | Listar todos os treinos em andamento;                                                        | OK     |
-| Salvamento/Carregamento automático via JSON                                                  | OK     |
+| Salvamento de alunos via JSON                                                                | OK     |
 | Organizar os dados de forma eficiente usando listas e tuplas.                                | OK     |
 | Barra de status com contador de fichas                                                       | OK     |
 | Data e hora em tempo real                                                                    | OK     |
