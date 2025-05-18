@@ -696,11 +696,12 @@ class SistemaAcademia:
             self.status_label.config(text="Nenhum dado encontrado. Iniciando novo arquivo.")
     
     def salvar_dados(self):
-        """Salvar dados das fichas em arquivo"""
-        with open('fichas_treino.json', 'w') as file:
-            json.dump(self.fichas_treino, file, indent=4)
+        """Salvar dados das fichas em arquivo com codificação UTF-8"""
+        with open('fichas_treino.json', 'w', encoding='utf-8') as file:
+            json.dump(self.fichas_treino, file, indent=4, ensure_ascii=False)
         self.status_label.config(text=f"Dados salvos: {len(self.fichas_treino)} fichas")
         messagebox.showinfo("Sucesso", "Dados salvos com sucesso!")
+
     
     def mostrar_cadastro(self):
         """Mostrar aba de cadastro"""

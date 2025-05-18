@@ -3,16 +3,17 @@
         "nome": "Telma",
         "objetivo": "Hipertrofia",
         "exercicios": [
-            "Costas, bra\u00e7os e pernas"
+            "Costas, braços e pernas"
         ],
         "data_inicio": "2025-05-18 14:16:49"
     },
     {
-        "nome": "Ellen Monroe",
-        "objetivo": "Hipertrofia",
+        "nome": "Rodrigo",
+        "objetivo": "Perder Peso",
         "exercicios": [
-            "Gl\u00fateos, B\u00edceps e Costa"
+            "Agachamento 3x10",
+            "Bíceps 3x12"
         ],
-        "data_inicio": "2025-05-18 14:37:21"
+        "data_inicio": "2025-05-18 16:34:24"
     }
 ]
