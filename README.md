@@ -1,6 +1,6 @@
-# Sistema de Gerenciamento de Fichas de Treino (Python + Tkinter)
+# Sistema - Academia Corpo Em Movimento
 
-Este projeto simula um sistema de gerenciamento de fichas de treino de uma academia. Foi desenvolvido como parte da disciplina de Algoritmos e Programação. Abaixo estão descritos os principais fluxos do sistema, focando na lógica de cada um deles com os respectivos trechos de código. A parte visual (Tkinter) é mencionada de forma superficial.
+Este projeto simula um sistema de gerenciamento de fichas de treino de uma academia. Foi desenvolvido como parte da disciplina de Algoritmos e Programação. Abaixo estão descritos os principais fluxos do sistema, focando na lógica de cada um deles com os respectivos trechos de código.
 
 ---
 
@@ -184,5 +184,3 @@ A interface foi feita com o Tkinter, com as seguintes características:
 * Exibição da data e hora atual em tempo real.
 
 ---
-
-**Telma Regina - Engenharia de Software - 2025**
