@@ -6,6 +6,8 @@ Este projeto simula um sistema de gerenciamento de fichas de treino de uma acade
 
 ![Tela do Sistema](img/foto-sistema.png)
 
+---
+
 ## ✅ Funcionalidades Atendidas
 
 | Funcionalidade                                                                               | Status |
