@@ -88,20 +88,21 @@ class CustomButton(tk.Canvas):
                         self.width, self.height, start=270, extent=90, 
                         fill=bg_color, outline="")
         
-        # Texto centralizado
-        text_x = self.width // 2
+        # Desenhar o texto e ícone
         if self.icon:
-            # Se houver ícone, ajustar a posição do texto
-            text_x = self.width // 2 + 15  # Desloca o texto um pouco para dar espaço ao ícone
-            self.create_text(text_x, self.height // 2, text=self.text,
-                             fill="white", font=self.font, tags="text")
-            # Desenhar ou carregar ícone
-            icon_x = text_x - 30
+            # Desenhar ícone à esquerda
+            icon_x = 20  # Posição fixa à esquerda
             self.create_text(icon_x, self.height // 2, text=self.icon,
                           fill="white", font=("Segoe UI Symbol", 12), tags="icon")
+            
+            # Texto à direita do ícone
+            text_x = 45  # Posicionamento após o ícone
         else:
-            self.create_text(text_x, self.height // 2, text=self.text,
-                             fill="white", font=self.font, tags="text")
+            # Centralizar texto quando não há ícone
+            text_x = self.width // 2
+            
+        self.create_text(text_x, self.height // 2, text=self.text,
+                         fill="white", font=self.font, anchor="w" if self.icon else "center", tags="text")
     
     def on_enter(self, event):
         self.active = True
@@ -214,7 +215,7 @@ class SistemaAcademia:
         
         # Botões do menu
         btn_cadastrar = CustomButton(self.sidebar_frame, text="Cadastrar Ficha", 
-                                    command=self.mostrar_cadastro, icon="✏️", width=200)
+                                    command=self.mostrar_cadastro, icon="➕", width=200)
         btn_cadastrar.pack(pady=5)
         TooltipManager(btn_cadastrar, "Cadastrar uma nova ficha de treino")
         
@@ -234,7 +235,7 @@ class SistemaAcademia:
         TooltipManager(btn_salvar, "Salvar todas as fichas em arquivo")
         
         btn_sair = CustomButton(self.sidebar_frame, text="Sair", 
-                               command=self.sair, icon="🚪", width=200)
+                               command=self.sair, icon="❌", width=200)
         btn_sair.pack(pady=5)
         TooltipManager(btn_sair, "Salvar e fechar o programa")
         
@@ -248,7 +249,7 @@ class SistemaAcademia:
                                font=self.texto_font, bg="#e6e6e6")
         lbl_contador.pack(pady=(10, 0))
         
-        self.contador_valor = tk.Label(self.contador_frame, text=str(len(self.fichas_treino)), 
+        self.contador_valor = tk.Label(self.contador_frame, text="0", 
                                      font=("Segoe UI", 24, "bold"), fg=COR_PRIMARIA, bg="#e6e6e6")
         self.contador_valor.pack(pady=(0, 10))
     
