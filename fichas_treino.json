@@ -1,1 +1,26 @@
-[{"nome": "telma", "objetivo": "hipertrofia", "exercicios": ["gluteo", "biceps e costa"], "data_inicio": "2025-05-18 13:36:07"}]
+[
+    {
+        "nome": "Telma Reis",
+        "objetivo": "Hipertrofia",
+        "exercicios": [
+            "Costa, b\u00edceps e pernas"
+        ],
+        "data_inicio": "2025-05-18 14:12:18"
+    },
+    {
+        "nome": "Telma",
+        "objetivo": "Hipertrofia",
+        "exercicios": [
+            "Costa, b\u00edceps e pernas"
+        ],
+        "data_inicio": "2025-05-18 14:13:35"
+    },
+    {
+        "nome": "Telma",
+        "objetivo": "Hipertrofia",
+        "exercicios": [
+            "Costas, bra\u00e7os e pernas"
+        ],
+        "data_inicio": "2025-05-18 14:16:49"
+    }
+]
