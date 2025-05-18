@@ -6,6 +6,10 @@ O objetivo é atender às funcionalidades exigidas pela disciplina de Algoritmos
 
 ---
 
+## 🖼️ Imagem do Sistema
+
+![Tela do Sistema](img/foto-sistema.png)
+
 ## ✅ Funcionalidades Atendidas
 
 | Funcionalidade                              | Status |
