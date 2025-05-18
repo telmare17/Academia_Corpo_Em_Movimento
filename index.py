@@ -683,7 +683,7 @@ class SistemaAcademia:
     def carregar_dados(self):
         """Carregar dados de fichas do arquivo"""
         try:
-            with open('fichas_treino.json', 'r') as file:
+            with open('fichas_treino.json', 'r', encoding='utf-8') as file:
                 self.fichas_treino = json.load(file)
             
             # Atualizar contador e status
@@ -694,6 +694,7 @@ class SistemaAcademia:
         except (FileNotFoundError, json.JSONDecodeError):
             self.fichas_treino = []
             self.status_label.config(text="Nenhum dado encontrado. Iniciando novo arquivo.")
+
     
     def salvar_dados(self):
         """Salvar dados das fichas em arquivo com codificação UTF-8"""
