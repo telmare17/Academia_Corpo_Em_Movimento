@@ -20,7 +20,7 @@ O objetivo é atender às funcionalidades exigidas pela disciplina de Algoritmos
 
 ---
 
-## 🧠 Lógica de Funcionamento (com códigos)
+## 🧠 Lógica de Funcionamento:
 
 ### 1. Estrutura de Dados
 
@@ -153,7 +153,7 @@ def sair(self):
 
 ---
 
-## 🎨 Parte Visual (Comentada de Forma Rasa)
+## 🎨 Parte Visual:
 
 * Utiliza `Tkinter` com `Canvas` e `ttk.Notebook` para organizar a interface.
 * Botões laterais com ícones personalizados (via PIL).
