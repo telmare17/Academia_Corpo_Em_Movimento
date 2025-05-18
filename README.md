@@ -177,7 +177,7 @@ def atualizar_hora():
 
 ---
 
-## Comentários sobre a interface gráfica
+## Interface gráfica
 
 A interface foi feita com o Tkinter, com as seguintes características:
 
