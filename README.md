@@ -1,8 +1,6 @@
-# Sistema de Gerenciamento de Fichas de Treino
+# Sistema - Academia Corpo Em Movimento
 
-Este projeto implementa uma aplicação desktop utilizando **Python** com **Tkinter**, focada na gestão de fichas de treino para uma academia fictícia chamada **Corpo em Movimento**.
-
-O objetivo é atender às funcionalidades exigidas pela disciplina de Algoritmos e Programação, com ênfase na lógica dos fluxos principais, organização de dados e persistência em JSON.
+Este projeto simula um sistema de gerenciamento de fichas de treino de uma academia. Foi desenvolvido como parte da disciplina de Algoritmos e Programação. Abaixo estão descritos os principais fluxos do sistema, focando na lógica de cada um deles com os respectivos trechos de código.
 
 ---
 
@@ -12,179 +10,181 @@ O objetivo é atender às funcionalidades exigidas pela disciplina de Algoritmos
 
 ## ✅ Funcionalidades Atendidas
 
-| Funcionalidade                              | Status |
-| ------------------------------------------- | ------ |
-| Cadastro de ficha de treino                 | OK     |
-| Consulta de ficha pelo nome do aluno        | OK     |
-| Listagem geral de fichas cadastradas        | OK     |
-| Salvamento/Carregamento automático via JSON | OK     |
-| Interface com menus, botões e abas          | OK     |
-| Barra de status com contador de fichas      | OK     |
-| Data e hora em tempo real                   | OK     |
+| Funcionalidade                                                                               | Status |
+| -------------------------------------------------------------------------------------------- | ------ |
+| Registrar fichas de treino com nome do aluno, objetivo, lista de exercícios e data de início | OK     |
+| Consultar fichas cadastradas, buscando por nome do aluno;                                    | OK     |
+| Listar todos os treinos em andamento;                                                        | OK     |
+| Salvamento de alunos via JSON                                                                | OK     |
+| Organizar os dados de forma eficiente usando listas e tuplas.                                | OK     |
+| Barra de status com contador de fichas                                                       | OK     |
+| Data e hora em tempo real                                                                    | OK     |
 
 ---
 
-## 🧠 Lógica de Funcionamento (com códigos)
+## 1. Registrar fichas de treino
 
-### 1. Estrutura de Dados
+### Lógica:
 
-As fichas de treino são armazenadas em uma **lista de dicionários**:
+1. Captura os dados do formulário preenchido pelo usuário (nome, objetivo, exercícios, data).
+2. Verifica se todos os campos foram preenchidos corretamente.
+3. Valida o formato da data e estrutura dos exercícios.
+4. Cria um dicionário com os dados da ficha de treino.
+5. Adiciona esse dicionário à lista principal de fichas (`fichas`).
+6. Atualiza o contador de fichas na interface.
+7. Salva a lista no arquivo JSON.
 
 ```python
-self.fichas = []
-```
+if not aluno or not objetivo or not exercicios:
+    messagebox.showwarning("Atenção", "Preencha todos os campos!")
+    return
 
-Cada ficha é um dicionário com os seguintes dados:
-
-```python
 ficha = {
-    "nome": nome,
-    "idade": idade,
+    "aluno": aluno,
     "objetivo": objetivo,
-    "exercicios": exercicios
+    "exercicios": exercicios,
+    "data_inicio": data_inicio
 }
-```
 
-As fichas são salvas e carregadas de um arquivo `.json`.
-
----
-
-### 2. Cadastro de Ficha
-
-Fluxo:
-
-1. Usuário preenche campos.
-2. Ao clicar em "Salvar", os dados são inseridos na lista `self.fichas`.
-3. Os dados são salvos no arquivo `fichas.json`.
-
-Código:
-
-```python
-def salvar_ficha():
-    nome = nome_entry.get()
-    idade = idade_entry.get()
-    objetivo = objetivo_entry.get()
-    exercicios = exercicios_entry.get()
-
-    if nome and idade and objetivo and exercicios:
-        ficha = {
-            "nome": nome,
-            "idade": idade,
-            "objetivo": objetivo,
-            "exercicios": exercicios
-        }
-        self.fichas.append(ficha)
-        self.salvar_dados()
-        self.atualizar_contador()
-        ...
-```
-
-### 3. Consulta por Nome
-
-Fluxo:
-
-1. Usuário digita o nome.
-2. O sistema percorre a lista `self.fichas` e retorna o primeiro nome correspondente.
-
-Código:
-
-```python
-def consultar_ficha():
-    nome = nome_entry.get()
-    for ficha in self.fichas:
-        if ficha["nome"].lower() == nome.lower():
-            resultado_text.insert("1.0", ...)
-            return
-    resultado_text.insert("1.0", "Ficha não encontrada.")
-```
-
-### 4. Listagem Geral
-
-Fluxo:
-
-* O sistema percorre todas as fichas e exibe em uma área de texto.
-
-Código:
-
-```python
-def mostrar_listagem(self):
-    for ficha in self.fichas:
-        texto.insert("end", f"Nome: {ficha['nome']}\n...")
-```
-
-### 5. Salvamento dos Dados
-
-Fluxo:
-
-* Sempre que uma ficha é adicionada ou a aplicação é fechada, os dados são salvos automaticamente em `fichas.json`.
-
-Código:
-
-```python
-def salvar_dados(self):
-    with open("fichas.json", "w") as f:
-        json.dump(self.fichas, f, indent=4)
-```
-
-### 6. Carregamento Inicial
-
-Fluxo:
-
-* Ao iniciar a aplicação, verifica se o arquivo `fichas.json` existe. Caso sim, carrega os dados para `self.fichas`.
-
-Código:
-
-```python
-def carregar_dados(self):
-    if os.path.exists("fichas.json"):
-        with open("fichas.json", "r") as f:
-            self.fichas = json.load(f)
-```
-
-### 7. Encerramento Seguro
-
-Fluxo:
-
-* Ao fechar a janela, chama `self.sair()`, que salva os dados antes de sair.
-
-Código:
-
-```python
-def sair(self):
-    self.salvar_dados()
-    self.root.destroy()
+fichas.append(ficha)
+barra_status.config(text=f"Fichas cadastradas: {len(fichas)}")
+salvar_dados()
 ```
 
 ---
 
-## 🎨 Parte Visual (Comentada de Forma Rasa)
+## 2. Consultar fichas por nome do aluno
 
-* Utiliza `Tkinter` com `Canvas` e `ttk.Notebook` para organizar a interface.
-* Botões laterais com ícones personalizados (via PIL).
-* Cores e estilos definidos em variáveis globais.
-* Cada aba é renderizada dinamicamente com `mostrar_cadastro`, `mostrar_consulta`, `mostrar_listagem`.
-* Barra superior com data e hora atualizada a cada segundo (via `after`).
-* Contador dinâmico é atualizado após cada cadastro.
+### Lógica:
 
----
+1. Obtém o nome digitado no campo de busca.
+2. Converte o nome para minúsculas (case-insensitive).
+3. Percorre todas as fichas.
+4. Compara o nome do aluno na ficha com o nome digitado.
+5. Se encontrar, formata os dados da ficha e exibe na interface.
 
-## 📁 Dados Armazenados em JSON
+```python
+resultado = ""
+nome_busca = entrada_nome.get().strip().lower()
 
-Exemplo:
+for ficha in fichas:
+    if ficha["aluno"].lower() == nome_busca:
+        resultado += formatar_ficha(ficha)
 
-```json
-[
-  {
-    "nome": "João da Silva",
-    "idade": 30,
-    "objetivo": "Emagrecimento",
-    "exercicios": "Esteira, Bike, Abdominais"
-  }
-]
+if resultado:
+    texto_resultado.delete("1.0", tk.END)
+    texto_resultado.insert(tk.END, resultado)
+else:
+    messagebox.showinfo("Resultado", "Nenhuma ficha encontrada.")
 ```
 
 ---
 
-## 📅 Conclusão
+## 3. Listar todos os treinos em andamento
 
-O sistema está funcional, com lógicas simples e bem comentadas, ideais para alunos iniciantes em Python. A interface está organizada, responsiva e intuitiva. Todos os requisitos foram implementados com clareza e o código pode ser expandido facilmente para funcionalidades futuras.
+### Lógica:
+
+1. Verifica se existem fichas cadastradas.
+2. Percorre todas as fichas da lista.
+3. Usa a função de formatação para montar um texto com as informações de cada ficha.
+4. Exibe o texto formatado na área de exibição.
+
+```python
+resultado = ""
+for ficha in fichas:
+    resultado += formatar_ficha(ficha)
+
+texto_resultado.delete("1.0", tk.END)
+texto_resultado.insert(tk.END, resultado)
+```
+
+---
+
+## 4. Salvamento e carregamento automático via JSON
+
+### Lógica:
+
+* **Carregamento**:
+
+  1. Ao iniciar o programa, verifica se o arquivo JSON existe.
+  2. Se existir, carrega os dados e converte em lista de fichas.
+  3. Atualiza o contador na interface com o número de fichas carregadas.
+
+* **Salvamento**:
+
+  1. Após qualquer modificação na lista de fichas (inclusão, edição ou exclusão), sobrescreve o arquivo com os novos dados.
+
+```python
+def salvar_dados():
+    with open(ARQUIVO_DADOS, 'w') as f:
+        json.dump(fichas, f, indent=4)
+
+if os.path.exists(ARQUIVO_DADOS):
+    with open(ARQUIVO_DADOS, 'r') as f:
+        fichas = json.load(f)
+    barra_status.config(text=f"Fichas cadastradas: {len(fichas)}")
+```
+
+---
+
+## 5. Organização com listas e tuplas
+
+### Lógica:
+
+* O sistema armazena as fichas como uma lista de dicionários:
+
+  ```python
+  fichas = []
+  ```
+* Cada dicionário representa uma ficha e contém:
+
+  * nome do aluno (string)
+  * objetivo (string)
+  * lista de exercícios (lista de tuplas)
+  * data de início (string)
+
+```python
+exercicios = [("Agachamento", "3x10"), ("Supino", "3x12")]
+```
+
+---
+
+## 6. Barra de status com contador de fichas
+
+### Lógica:
+
+* A cada ação que modifica o número de fichas (adicionar, carregar), a barra de status é atualizada com o novo total.
+
+```python
+barra_status.config(text=f"Fichas cadastradas: {len(fichas)}")
+```
+
+---
+
+## 7. Data e hora em tempo real
+
+### Lógica:
+
+* O sistema usa a função `after()` do Tkinter para agendar a atualização da hora a cada segundo.
+* A hora formatada é exibida em um `Label`.
+
+```python
+def atualizar_hora():
+    agora = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
+    rotulo_hora.config(text=agora)
+    root.after(1000, atualizar_hora)
+```
+
+---
+
+## Comentários sobre a interface gráfica
+
+A interface foi feita com o Tkinter, com as seguintes características:
+
+* Campos de entrada para nome, objetivo, exercícios e data.
+* Botões para salvar ficha, buscar por nome e listar fichas.
+* Área de exibição para resultados.
+* Barra de status informando a quantidade de fichas.
+* Exibição da data e hora atual em tempo real.
+
+---
