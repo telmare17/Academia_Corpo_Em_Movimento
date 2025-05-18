@@ -176,15 +176,13 @@ def atualizar_hora():
 ```
 
 ---
-
-## Interface gráfica
-
-A interface foi feita com o Tkinter, com as seguintes características:
-
-* Campos de entrada para nome, objetivo, exercícios e data.
-* Botões para salvar ficha, buscar por nome e listar fichas.
-* Área de exibição para resultados.
-* Barra de status informando a quantidade de fichas.
-* Exibição da data e hora atual em tempo real.
+| Requisito                | Atendido? | Onde aparece?                                              |
+| ------------------------ | --------- | ---------------------------------------------------------- |
+| Estruturas condicionais  | ✅         | `if` para verificar nome, validar campos, etc.             |
+| Listas                   | ✅         | `fichas = []`, `fichas.append(...)`, `for ficha in fichas` |
+| Tuplas                   | ✅         | `exercicios = [("Agachamento", "3x10"), ...]`              |
+| Manipulação de arquivos  | ✅         | `open()`, `json.load`, `json.dump`                         |
+| Operadores lógicos       | ✅         | `if aluno and objetivo and ...`                            |
+| Entrada e saída de dados | ✅         | Inputs do Tkinter e exibição na interface                  |
 
 ---
