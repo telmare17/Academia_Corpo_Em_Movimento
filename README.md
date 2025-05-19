@@ -22,7 +22,7 @@ Este projeto simula um sistema de gerenciamento de fichas de treino de uma acade
 
 ---
 
-## 1. Registrar fichas de treino
+## 1. Cadastrar fichas de treino
 
 ### Lógica:
 
@@ -80,7 +80,7 @@ else:
 
 ---
 
-## 3. Listar todos os treinos em andamento
+## 3. Listar treinos em andamento
 
 ### Lógica:
 
