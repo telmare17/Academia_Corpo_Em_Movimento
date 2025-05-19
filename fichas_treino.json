@@ -1,19 +1,35 @@
 [
     {
-        "nome": "Telma",
-        "objetivo": "Hipertrofia",
-        "exercicios": [
-            "Costas, braços e pernas"
-        ],
-        "data_inicio": "2025-05-18 14:16:49"
-    },
-    {
         "nome": "Rodrigo",
-        "objetivo": "Perder Peso",
+        "objetivo": "Hipertrofia",
         "exercicios": [
             "Agachamento 3x10",
             "Bíceps 3x12"
         ],
         "data_inicio": "2025-05-18 16:34:24"
+    },
+    {
+        "nome": "Ana",
+        "objetivo": "Emagrecimento",
+        "exercicios": [
+            "Corrida 30min",
+            "Abdominal 3x15"
+        ],
+        "data_inicio": "2025-05-18 16:34:24"
+    },
+    {
+        "nome": "Carlos",
+        "objetivo": "Definição Muscular",
+        "exercicios": [
+            "Supino 4x8",
+            "Remada 3x10"
+        ],
+        "data_inicio": "2025-05-18 16:34:24"
+    },
+    {
+        "nome": "Arlley",
+        "objetivo": "Resistência",
+        "exercicios": [],
+        "data_inicio": "2025-05-19 13:25:03"
     }
 ]

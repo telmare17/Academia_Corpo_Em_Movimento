@@ -34,7 +34,7 @@ class TooltipManager:
 
         label = tk.Label(self.tooltip, text=self.text,
                          background="#FFFFaa", relief="solid", borderwidth=1,
-                         font=("Arial", 10, "normal"))
+                         font=("Arial", 14, "normal"))
         label.pack(ipadx=5, ipady=5)
 
     def hide_tooltip(self, event=None):
@@ -52,7 +52,7 @@ class CustomButton(tk.Canvas):
         self.command = command
         self.text = text
         self.icon = icon
-        self.font = ("Segoe UI", 11)
+        self.font = ("Segoe UI", 14)
         self.active = False
         
         # Estado normal
@@ -147,9 +147,9 @@ class SistemaAcademia:
             pass
             
         # Fonte personalizada
-        self.titulo_font = ("Segoe UI", 24, "bold")
-        self.subtitulo_font = ("Segoe UI", 14)
-        self.texto_font = ("Segoe UI", 12)
+        self.titulo_font = ("Segoe UI", 28, "bold")
+        self.subtitulo_font = ("Segoe UI", 18)
+        self.texto_font = ("Segoe UI", 14)
         
         # Criar frame principal
         self.main_frame = tk.Frame(self.root, bg=COR_FUNDO)
@@ -348,7 +348,7 @@ class SistemaAcademia:
         self.txt_exercicios.pack(fill=tk.BOTH, expand=True)
         
         tip_exercicios = tk.Label(exercicios_frame, text="Insira um exercício por linha", 
-                                 font=("Segoe UI", 10, "italic"), fg="gray", bg=COR_FUNDO)
+                                 font=("Segoe UI", 18, "italic"), fg="gray", bg=COR_FUNDO)
         tip_exercicios.pack(anchor="w")
         
         # Botão de cadastro
@@ -596,7 +596,7 @@ class SistemaAcademia:
         info_frame.pack(fill=tk.X, pady=5)
         
         # Nome
-        lbl_nome = tk.Label(info_frame, text="Nome:", font=("Segoe UI", 11, "bold"), 
+        lbl_nome = tk.Label(info_frame, text="Nome:", font=("Segoe UI", 18, "bold"), 
                            bg=COR_FUNDO, fg=COR_TEXTO, width=10, anchor="w")
         lbl_nome.grid(row=0, column=0, sticky="w", pady=2)
         
@@ -605,7 +605,7 @@ class SistemaAcademia:
         lbl_nome_valor.grid(row=0, column=1, sticky="w", pady=2)
         
         # Objetivo
-        lbl_objetivo = tk.Label(info_frame, text="Objetivo:", font=("Segoe UI", 11, "bold"), 
+        lbl_objetivo = tk.Label(info_frame, text="Objetivo:", font=("Segoe UI", 18, "bold"), 
                                bg=COR_FUNDO, fg=COR_TEXTO, width=10, anchor="w")
         lbl_objetivo.grid(row=1, column=0, sticky="w", pady=2)
         
@@ -614,7 +614,7 @@ class SistemaAcademia:
         lbl_obj_valor.grid(row=1, column=1, sticky="w", pady=2)
         
         # Data
-        lbl_data = tk.Label(info_frame, text="Início:", font=("Segoe UI", 11, "bold"), 
+        lbl_data = tk.Label(info_frame, text="Início:", font=("Segoe UI", 18, "bold"), 
                            bg=COR_FUNDO, fg=COR_TEXTO, width=10, anchor="w")
         lbl_data.grid(row=2, column=0, sticky="w", pady=2)
         
@@ -631,7 +631,7 @@ class SistemaAcademia:
         exercicios_frame.pack(fill=tk.BOTH, expand=True, pady=5)
         
         lbl_exercicios = tk.Label(exercicios_frame, text="Exercícios:", 
-                                 font=("Segoe UI", 12, "bold"), bg=COR_FUNDO, fg=COR_PRIMARIA)
+                                 font=("Segoe UI", 18, "bold"), bg=COR_FUNDO, fg=COR_PRIMARIA)
         lbl_exercicios.pack(anchor="w", pady=(0, 5))
         
         # Lista de exercícios
