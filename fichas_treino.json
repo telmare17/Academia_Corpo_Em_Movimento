@@ -29,7 +29,10 @@
     {
         "nome": "Arlley",
         "objetivo": "Resistência",
-        "exercicios": [],
-        "data_inicio": "2025-05-19 13:25:03"
+        "exercicios": [
+            "Corrida 30min",
+            "Flexão 100"
+        ],
+        "data_inicio": "2025-05-19 20:36:46"
     }
 ]
